@@ -38,6 +38,11 @@ public class JsonClient {
         LOG.info("method={}, url={}", method, url);
         System.out.println();
         HttpMethod httpMethod = HttpMethod.valueOf(method);
+        if(httpMethod == null) {
+            for (HttpMethod temp : HttpMethod.values()) {
+                LOG.info("method name={}", temp.name());
+            }
+        }
         CloseableHttpResponse response = null;
         try {
             switch (httpMethod) {
